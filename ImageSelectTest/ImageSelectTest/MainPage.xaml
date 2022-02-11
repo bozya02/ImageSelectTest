@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ImageSelectTest.MainPage">
+
+    <StackLayout>
+        <Entry x:Name="entryName"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Gallery" Clicked="btnGalleryClicked"/>
+            <Button Text="Camera" Clicked="btnCameraClicked"/>
+        </StackLayout>
+        
+        <Button Text="Add" Clicked="btnAddClicked"/>
+        <ListView x:Name="lvPhotos" ItemsSource="{Binding Photos}" ItemSelected="lvPhotosItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
