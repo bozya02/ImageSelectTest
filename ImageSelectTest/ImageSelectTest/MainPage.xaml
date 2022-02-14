@@ -14,7 +14,12 @@
         <ListView x:Name="lvPhotos" ItemsSource="{Binding Photos}" ItemSelected="lvPhotosItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding Name}"/>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                            <Image Source="{Binding Path}"/>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -25,9 +25,17 @@ namespace ImageSelectTest
         {
             return database.Delete<Photo>(id);
         }
-        public void SaveItem(Photo item)
+        public int SaveItem(Photo item)
         {
-            database.Insert(item);
+            if (item.Id != 0)
+            {
+                database.Update(item);
+                return item.Id;
+            }
+            else
+            {
+                return database.Insert(item);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ namespace ImageSelectTest
     public partial class MainPage : ContentPage
     {
         public IEnumerable<Photo> Photos { get; set; }
-        string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        public string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public string photoPath { get; set; }
         
         public MainPage()
@@ -33,8 +33,7 @@ namespace ImageSelectTest
 
         void UpdateList()
         {
-            Photos = App.Database.GetItems();
-            lvPhotos.ItemsSource = Photos;
+            lvPhotos.ItemsSource = App.Database.GetItems();
         }
 
 
@@ -85,7 +84,6 @@ namespace ImageSelectTest
         {
             Photo photo = new Photo
             {
-                Id = Photos.Count() + 1,
                 Name = entryName.Text,
                 Path = photoPath
             };
